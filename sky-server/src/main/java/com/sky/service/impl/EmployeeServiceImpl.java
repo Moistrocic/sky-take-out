@@ -71,7 +71,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @param employeeDTO
      * @return
      */
-    @Transactional
+    @Override
     public void save(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
         // 对象属性拷贝
@@ -88,7 +88,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeMapper.insert(employee);
     }
 
-    @Transactional
+    @Override
     public PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO) {
         // 开始分页查询
         PageHelper.startPage(employeePageQueryDTO.getPage(), employeePageQueryDTO.getPageSize());
@@ -98,17 +98,37 @@ public class EmployeeServiceImpl implements EmployeeService {
         return new PageResult(total, records);
     }
 
+    @Override
+    public Employee getById(Long id) {
+        Employee employee = employeeMapper.getById(id);
+        employee.setPassword("****");
+        return employee;
+    }
+
     /**
      * 启用禁用员工账号
      * @param status
      * @param id
      */
-    @Transactional
+    @Override
     public void startOrStop(Integer status, Long id) {
         Employee employee = Employee.builder()
                         .id(id)
                         .status(status)
                         .build();
+        employeeMapper.update(employee);
+    }
+
+    /**
+     * 更新员工信息
+     * @param employeeDTO
+     */
+    @Override
+    public void update(EmployeeDTO employeeDTO) {
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeDTO, employee);
+        employee.setUpdateTime(LocalDateTime.now());
+        employee.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.update(employee);
     }
 }
