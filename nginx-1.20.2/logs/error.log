@@ -9,3 +9,4 @@
 2024/08/12 16:26:18 [error] 28364#17928: *54 CreateFile() "D:\VSCODE\Code\Java\web-project\nginx-1.20.2/html/sky/doc.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /doc.html HTTP/1.1", host: "localhost"
 2024/08/16 14:46:15 [emerg] 23732#4524: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
 2024/08/16 14:54:49 [emerg] 29028#28864: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2024/08/17 13:42:53 [emerg] 6268#2596: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
