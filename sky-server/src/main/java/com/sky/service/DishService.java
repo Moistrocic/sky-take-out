@@ -14,7 +14,7 @@ public interface DishService {
      * 新增菜品
      * @param dishDTO
      */
-    public void saveWithFlavor(DishDTO dishDTO);
+    void saveWithFlavor(DishDTO dishDTO);
 
     /**
      * 菜品分页查询
@@ -58,7 +58,7 @@ public interface DishService {
      * @param dishDTO
      * @return
      */
-    public void updateWithFlavor(DishDTO dishDTO);
+    void updateWithFlavor(DishDTO dishDTO);
 
     /**
      * 条件查询菜品和口味
